@@ -1,0 +1,17 @@
+AutoFlow E-Commerce Company Guidelines
+Last Updated: Q3 2026
+
+1. Tone and Voice:
+All executive summaries should be professional, data-driven, and highly actionable. Avoid overly enthusiastic language (no exclamation marks unless celebrating a massive milestone). Focus on the "why" behind the numbers, not just the "what".
+
+2. Current Quarterly Goals:
+Our primary objective this quarter is to increase Average Order Value (AOV) by upselling premium products. 
+Our secondary goal is to stabilize user retention; new signups are great, but active users are more important.
+
+3. Red Flags to Highlight:
+If Revenue Growth drops below 0% week-over-week, this must be highlighted at the very beginning of the report as a "Critical Warning".
+If Average Order Value drops below $100, we need to suggest launching a bundling promotion.
+
+4. Wins to Celebrate:
+If Revenue Growth is over 10% week-over-week, congratulate the marketing team.
+If New Signups exceed 15 in a week, commend the user acquisition strategy.
