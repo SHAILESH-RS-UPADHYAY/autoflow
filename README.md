@@ -1,66 +1,99 @@
-# AutoFlow — GenAI Workflow Automation
+# ✨ AutoFlow: GenAI Workflow Automation
 
-AutoFlow is a backend automation engine that extracts raw data from a PostgreSQL database, computes Key Performance Indicators (KPIs) using `pandas`, and uses Generative AI (LangChain + OpenAI) augmented with RAG (ChromaDB) to write deterministic, highly-actionable executive summaries.
+Welcome to **AutoFlow**! 👋 
 
-It replaces the manual work of staring at dashboards by running an automated pipeline via a cron job every Monday morning.
+AutoFlow is a smart, automated robot for your business. Instead of a human spending hours staring at dashboards and writing weekly reports, AutoFlow does it automatically. It pulls the raw numbers from your database, calculates how your business is doing, reads your company goals, and uses AI to write a perfect, easy-to-read executive summary. 
 
-## 🚀 Features
-- **SQL Data Extraction**: Connects to PostgreSQL via SQLAlchemy.
-- **Data Processing**: Computes trailing 7-day and 14-day KPIs (Revenue Growth, New Signups, Average Order Value) using `pandas`.
-- **RAG Engine**: Uses ChromaDB to embed company guidelines, goals, and tone requirements so the LLM output is grounded in actual business context.
-- **GenAI Brain**: Uses LangChain and OpenAI (`gpt-4o-mini`) to synthesize the raw math and the RAG context into a readable markdown report.
-- **Workflow Automation**: Uses the `schedule` library to automate end-to-end execution.
+It runs completely on its own, every Monday morning! ☕
 
-## 🧠 Architecture
+---
+
+## 🌟 What Can AutoFlow Do?
+
+- 📊 **Pulls Data Automatically:** Connects directly to your database (PostgreSQL) to grab the latest sales and user data.
+- 🧮 **Does the Math:** Uses Pandas to calculate exactly how much money you made this week and how many new users signed up.
+- 🧠 **Understands Your Goals (RAG):** Reads a special database (ChromaDB) to learn your company's tone and quarterly goals so it knows exactly what to focus on.
+- 🤖 **Writes Like a Pro:** Uses OpenAI (ChatGPT) to combine the math and your goals into a beautiful, actionable report.
+- ⏰ **Never Sleeps:** Runs automatically on a schedule so you wake up to a finished report.
+
+---
+
+## 🎨 How It Works (Visualized)
+
+Here is a simple look at how AutoFlow thinks and acts:
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#4F46E5', 'edgeLabelBackground':'#ffffff', 'tertiaryColor': '#F3F4F6'}}}%%
 graph TD
-    A[(PostgreSQL)] -->|Extract Raw Data| B(Pandas Data Processor)
-    B -->|Compute KPIs| C{KPI JSON Data}
-    D[(ChromaDB Vector Store)] -->|Retrieve Company Guidelines| E(RAG Context)
-    C --> F[LangChain Prompt Template]
+    classDef database fill:#3b82f6,stroke:#2563eb,stroke-width:2px,color:#fff,rx:10px,ry:10px;
+    classDef logic fill:#10b981,stroke:#059669,stroke-width:2px,color:#fff,rx:10px,ry:10px;
+    classDef ai fill:#8b5cf6,stroke:#7c3aed,stroke-width:2px,color:#fff,rx:10px,ry:10px;
+    classDef output fill:#f59e0b,stroke:#d97706,stroke-width:2px,color:#fff,rx:10px,ry:10px;
+
+    A[(1. PostgreSQL Database)]:::database -->|Raw Numbers| B(2. Data Processor):::logic
+    B -->|Calculates KPIs| C{3. Math Results}:::logic
+    
+    D[(4. Company Guidelines)]:::database -->|Retrieves Tone & Goals| E(5. RAG Engine):::ai
+    
+    C --> F[6. AI Brain Prompt]:::ai
     E --> F
-    F --> G[OpenAI LLM]
-    G --> H[Final Markdown Report]
-    H -->|Save to File/Email| I(Automated Output)
+    
+    F --> G(7. OpenAI / ChatGPT):::ai
+    G --> H[8. Final Weekly Report]:::output
+    H -->|Saved to File| I(Done! 🎉):::output
 ```
 
-## 🛠️ Quick Start
+---
 
-### 1. Installation
-Clone the repository and install the dependencies:
+## 🚀 Step-by-Step Guide for Beginners
+
+If you want to run this project on your own computer, follow these simple steps!
+
+### Step 1: Download the Code
+First, you need to download this folder to your computer. Open your terminal (or command prompt) and type:
 ```bash
 git clone https://github.com/SHAILESH-RS-UPADHYAY/autoflow.git
 cd autoflow
+```
+
+### Step 2: Set Up the Environment
+We need to create a "virtual room" for our project so it doesn't mess with other apps on your computer.
+```bash
 python -m venv venv
-source venv/bin/activate  # Windows: .\venv\Scripts\activate
+```
+Now, turn the room on:
+- **On Windows:** `.\venv\Scripts\activate`
+- **On Mac/Linux:** `source venv/bin/activate`
+
+Install all the required robot parts (libraries):
+```bash
 pip install -r requirements.txt
 ```
 
-### 2. Environment Variables
-Copy `.env.example` to `.env` and add your OpenAI API key:
-```bash
-cp .env.example .env
-```
+### Step 3: Add Your AI Key
+AutoFlow needs an OpenAI API key to talk to ChatGPT.
+1. Create a copy of the `.env.example` file and rename it to exactly `.env`
+2. Open the `.env` file and replace `"sk-your-openai-api-key-here"` with your real OpenAI key.
 
-### 3. Setup the Database
-Make sure you have a PostgreSQL database running locally (or update the `DATABASE_URL` in the scripts to point to your Cloud SQL instance). Then, generate the mock data:
+### Step 4: Create the Mock Database
+Run this command to create a fake database filled with 30 days of fake sales data:
 ```bash
 python database.py
 ```
+*(You will see a message saying "Mock data successfully injected!")*
 
-### 4. Build the RAG Engine
-Embed the company guidelines into the local ChromaDB instance:
+### Step 5: Teach AutoFlow Your Goals
+Run this command so AutoFlow can read your company guidelines and save them to its memory:
 ```bash
 python rag_engine.py
 ```
 
-### 5. Run the Engine
-You can test the entire pipeline (extraction, analytics, RAG retrieval, and LLM generation) by running:
+### Step 6: Start the Engine! 🏎️
+You are completely ready. Run the main file:
 ```bash
 python main.py
 ```
-This will generate a `weekly_report_YYYY_MM_DD.md` file in your directory.
+AutoFlow will immediately generate a test report and save it as a Markdown (`.md`) file in your folder. After that, it will stay awake in the background and generate a new report every Monday at 8:00 AM!
 
 ---
-*Built to showcase the intersection of traditional data engineering and modern GenAI workflow automation.*
+*Built with ❤️ to showcase the intersection of traditional data engineering and modern GenAI workflow automation.*
