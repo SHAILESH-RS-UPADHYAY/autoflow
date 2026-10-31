@@ -1,3 +1,5 @@
+<p align="center"><img src=".github/logo.svg" width="88" height="88" alt="AutoFlow logo"></p>
+
 # ✨ AutoFlow: GenAI Workflow Automation
 
 Welcome to **AutoFlow**! 👋 
