@@ -8,6 +8,13 @@ AutoFlow is a smart, automated robot for your business. Instead of a human spend
 
 It runs completely on its own, every Monday morning! ☕
 
+<picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="https://shailesh-stats.vercel.app/api/plate?name=repo&amp;repo=autoflow&amp;theme=dark&amp;w=m">
+  <source media="(max-width: 600px)" srcset="https://shailesh-stats.vercel.app/api/plate?name=repo&amp;repo=autoflow&amp;theme=light&amp;w=m">
+  <source media="(prefers-color-scheme: dark)" srcset="https://shailesh-stats.vercel.app/api/plate?name=repo&amp;repo=autoflow&amp;theme=dark">
+  <img src="https://shailesh-stats.vercel.app/api/plate?name=repo&amp;repo=autoflow&amp;theme=light" width="100%" alt="Commits per week and languages for AutoFlow, drawn live from GitHub.">
+</picture>
+
 ---
 
 ## 🌟 What Can AutoFlow Do?
